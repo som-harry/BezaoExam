@@ -120,10 +120,9 @@ namespace RecruitingProject.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult> ContactMail()
+        public async Task<ActionResult> ContactMail(string message, string subject)
         {
-           var messageBody = "" ;
-           await  NotificationRequest.SendMail("Chisomekeh71@gmail.com", messageBody, "Contact Us");
+           await  NotificationRequest.SendMail("Chisomekeh71@gmail.com",message, subject);
             return RedirectToAction("Index", "job");
         }
 

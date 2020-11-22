@@ -87,7 +87,7 @@ namespace RecruitingProject.Services
         {
             var applyForJob = dbContext.context.ApplyForJobs.SingleOrDefault(a => a.Id == id);
 
-            //convert resume byte[] back to pdf file
+            //convert resume byte[] back to pdf file to be display
             File.WriteAllBytes(HttpContext.Current.Server.MapPath("~/Document/resume.pdf"), applyForJob.Resume);
          
         }
