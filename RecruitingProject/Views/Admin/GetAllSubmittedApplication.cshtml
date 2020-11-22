@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RecruitingProject.Entity.ApplyForJob>
+@{
+    ViewBag.Title = "GetAllSubmittedApplication";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+
+<link rel="stylesheet" href="~/Template/assets/css/style.css">
+
+<table id="jobs" class="table table-bordered table-hover dbtable">
+    <thead>
+        <tr>
+            <th>Resume</th>
+            <th>Position Applied</th>
+            <th> Applicant Id</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var apply in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(" Download Resume", "Display", "Admin", new { id = apply.Id }, null)</td>
+                    <td>@apply.JobRole</td>
+                    <td>@apply.ApplicantId</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Return back", "Index", "Admin")
+</div>
+
+

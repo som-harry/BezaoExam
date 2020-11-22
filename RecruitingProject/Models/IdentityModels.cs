@@ -22,6 +22,8 @@ namespace RecruitingProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<ApplyForJob> ApplyForJobs { get; set; }
+        public DbSet<Job> Jobs { get; set; }
         public ApplicationDbContext()
             : base("BezaoExam", throwIfV1Schema: false)
         {

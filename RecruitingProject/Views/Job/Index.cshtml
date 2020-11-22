@@ -1,0 +1,143 @@
+﻿@model IEnumerable<RecruitingProject.Entity.Job>
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+
+<link rel="stylesheet" href="~/Template/assets/css/style.css">
+
+@if (!Model.Any())
+{
+    <p>There was no avaliable product</p>
+}
+else
+{
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Avaliable  <em>Jobs</em></h2>
+                        <img src=@Url.Content("~/Template/assets/images/line-dec.png") alt="">
+                        <p>Below are list of avaliable jobs, Go to View more then click on it and then apply for your choice job </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var job in Model)
+                {
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src=@job.ImageLocation alt="">
+                            </div>
+                            <div class="down-content">
+                                <span> <sup>$</sup>@job.Amount </span>
+
+                                <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+
+                                <p>@job.JobName</p>
+
+                                <ul class="social-icons">
+                                    <li>@Html.ActionLink("+ View More", "Details", "Job", new { id = job.Id }, null)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+            <br>
+            <div class="main-button text-center">
+                <a href="">View Jobs</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-bg" id="schedule" style="background-image: url(~/Template/assets/images/about-fullscreen-1-1920x700.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading dark-bg">
+                        <h2>Read <em>About Us</em></h2>
+                        <img src=@Url.Content("Template/assets/images/line-dec.png" )>
+                        <h3>Please <em>Register</em> as an Applicant for you to be able to apply for <em>Job</em></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-content text-center">
+                        <h4>After applying for job you will be notify if your submission  is accepted or not </h4>
+
+                        <h4>You can review your details after or make changes to them</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ***** Testimonials Item Start ***** -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Read our <em>Testimonials</em></h2>
+                        <img src=@Url.Content("/Template/assets/images/line-dec.png")>
+                        <p>Do you still doubt within yourself about starting a career? The testimony of one or two persons here will change your mindset</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src=@Url.Content("/Template/assets/images/features-first-icon.png" )>
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src=@Url.Content("/Template/assets/images/features-first-icon.png" )>
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src=@Url.Content("/Template/assets/images/features-first-icon.png" )>
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src=@Url.Content("/Template/assets/images/features-first-icon.png" )>
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Item End ***** -->
+
+}
+

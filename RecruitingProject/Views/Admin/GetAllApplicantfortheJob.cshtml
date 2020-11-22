@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RecruitingProject.Entity.Applicant>
+@{
+    ViewBag.Title = "GetAllApplicantfortheJob";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+
+<link rel="stylesheet" href="~/Template/assets/css/style.css">
+
+<table id="cant" class="table table-bordered table-hover dbtable">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Accept</th>
+            <th>Reject</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var applicant in Model)
+            {
+                <tr>
+                    <td>@applicant.FirstName</td>
+                    <td>@applicant.LastName</td>
+                    <td>@Html.ActionLink("Accept", "Accept", "Applicant", new { id = applicant.id }, new { @class = "btn btn-info" })</td>
+                    <td>@Html.ActionLink("Reject", "Reject", "Applicant", new { id = applicant.id }, new { @class = "btn btn-danger" })</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Return back", "Index", "Admin")
+</div>
+

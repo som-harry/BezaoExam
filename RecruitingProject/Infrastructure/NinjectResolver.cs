@@ -9,9 +9,11 @@ using System.Web.Http.Dependencies;
 
 namespace RecruitingProject.Infrastructure
 {
-    public class NinjectResolver : IDependencyResolver
+    
+    public class NinjectResolver: IDependencyResolver
     {
         private IKernel _kernel;
+
         public NinjectResolver(IKernel kernel)
         {
             _kernel = kernel;
@@ -21,6 +23,10 @@ namespace RecruitingProject.Infrastructure
         private void AddBindings()
         {
             _kernel.Bind<IApplicant>().To<ApplicantService>();
+            _kernel.Bind<IAdmin>().To<AdminService>();
+            _kernel.Bind<IApplyForJob>().To<ApplyForJobService>();
+            _kernel.Bind<IJob>().To<JobService>();
+            _kernel.Bind<NotificationRequest>().ToSelf();
         }
 
         public IDependencyScope BeginScope()
@@ -40,5 +46,6 @@ namespace RecruitingProject.Infrastructure
 
         public IEnumerable<object> GetServices(Type serviceType) => _kernel.GetAll(serviceType);
 
+       
     }
 }

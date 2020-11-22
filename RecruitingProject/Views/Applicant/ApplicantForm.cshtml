@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" >
 
 <link rel="stylesheet" href="~/Template/assets/css/style.css">
 
@@ -13,7 +13,7 @@
 
 @using (Html.BeginForm("Save", "Applicant", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(true, "Please fill in the following errors")
 
     <div class="form-group">
         @Html.LabelFor(a => a.FirstName)
@@ -52,12 +52,6 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(a => a.JobRole)
-        @Html.TextBoxFor(a => a.JobRole, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.JobRole)
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(a => a.Password)
         @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
         @Html.ValidationMessageFor(a => a.Password)
@@ -73,12 +67,6 @@
         @Html.LabelFor(a => a.File)
         @Html.TextBoxFor(a => a.File, new { type = "file" })
         @Html.ValidationMessageFor(a => a.File)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(a => a.Files)
-        @Html.TextBoxFor(a => a.Files, new { type = "file" })
-        @Html.ValidationMessageFor(a => a.Files)
     </div>
 
     @Html.AntiForgeryToken()

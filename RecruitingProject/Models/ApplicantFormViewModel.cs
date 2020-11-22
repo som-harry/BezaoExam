@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecruitingProject.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,10 +27,6 @@ namespace RecruitingProject.Models
         [Display(Name = "Your Birthday")]
         public DateTime Dob { get; set; }
 
-        [Required]
-        [Display(Name = "Postion you are applying for")]
-        public string JobRole { get; set; }
-
         [Required(ErrorMessage = "Please enter a valid Email")]
         [EmailAddress]
         public string Email { get; set; }
@@ -50,8 +47,5 @@ namespace RecruitingProject.Models
         [Display(Name = "Profile Image")]
         public HttpPostedFileBase File { get; set; }
 
-        [Required]
-        [Display(Name = "Upload your resume")]
-        public HttpPostedFileBase Files { get; set; }
     }
 }

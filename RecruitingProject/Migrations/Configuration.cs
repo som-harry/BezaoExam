@@ -36,15 +36,15 @@ namespace RecruitingProject.Migrations
             IdentityResult result = UserManager.Create(User, "Admin@gmail.com");
             if (result.Succeeded)
             {
-                if (!rolemanager.RoleExists("Admin"))
+                if (!rolemanager.RoleExists("ADMIN"))
                 {
                     var role = new IdentityRole();
-                    role.Name = "Admin";
+                    role.Name = "ADMIN";
                     rolemanager.Create(role);
-                    UserManager.AddToRole(User.Id, "Admin");
+                    UserManager.AddToRole(User.Id, "ADMIN");
 
                 }
-                UserManager.AddToRole(User.Id, "Admin");
+                UserManager.AddToRole(User.Id, "ADMIN");
             }
         }
     }

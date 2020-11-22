@@ -2,120 +2,63 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
-@*<div class="main-banner   container-fluid" id="top">
-    <video autoplay muted loop id="bg-video">
-        <source src=@Url.Content("/Template/assets/images/video.mp4") type="video/mp4" />
-    </video>
 
-    <div class="video-overlay header-text">
-        <div class="caption">
-            <h6>Thank you for visiting Us</h6>
-            <h2>Find the perfect <em>Job</em></h2>
-            <div class="main-button">
-                <a href="contact.html">Contact Us</a>
-            </div>
-        </div>
-    </div>
-</div>*@
-<section class="section" id="trainers">
+<!-- ***** Blog Start ***** -->
+<section class="section" id="our-classes">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Avaliable  <em>Jobs</em></h2>
-                    <img src=@Url.Content("~/Template/assets/images/line-dec.png") alt="">
+                    <h2>Read our <em>Blog</em></h2>
+                    <img src=@Url.Content("/Template/assets/images/line-dec.png") alt="">
                     <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="tabs">
             <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src=@Url.Content("~/Template/assets/images/product-1-720x480.jpg") alt="">
-                    </div>
-                    <div class="down-content">
-                        <span> <sup>$</sup>70 000 </span>
-
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                        <ul class="social-icons">
-                            <li><a href="~/Template/job-details.html">+ View More</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <ul>
+                    <li><a href='#tabs-1'>Lorem ipsum dolor sit amet, consectetur adipisicing.</a></li>
+                    <li><a href='#tabs-2'>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</a></li>
+                    <li><a href='#tabs-3'>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</a></li>
+                    <div class="main-rounded-button"><a href="blog.html">Read More</a></div>
+                </ul>
             </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="~/Template/assets/images/product-2-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span> <sup>$</sup>70 000 </span>
+            <div class="col-lg-8">
+                <section class='tabs-content'>
+                    <article id='tabs-1'>
+                        <img src=@Url.Content("/Template/assets/images/blog-image-1-940x460.jpg") alt="">
+                        <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
 
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                        <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
 
-                        <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                        <ul class="social-icons">
-                            <li><a href="~/Template/job-details.html">+ View More</a></li>
-                        </ul>
-                    </div>
-                </div>
+                        <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
+                        <div class="main-button">
+                            <a href="blog-details.html">Continue Reading</a>
+                        </div>
+                    </article>
+                    <article id='tabs-2'>
+                        <img src=@Url.Content("Template/assets/images/blog-image-2-940x460.jpg") alt="">
+                        <h4>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</h4>
+                        <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                        <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        <div class="main-button">
+                            <a href="blog-details.html">Continue Reading</a>
+                        </div>
+                    </article>
+                    <article id='tabs-3'>
+                        <img src=@Url.Content("/Template/assets/images/blog-image-3-940x460.jpg") alt="">
+                        <h4>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</h4>
+                        <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                        <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
+                        <div class="main-button">
+                            <a href="">Continue Reading</a>
+                        </div>
+                    </article>
+                </section>
             </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="~/Template/assets/images/product-3-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span> <sup>$</sup>70 000 </span>
-
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                        <ul class="social-icons">
-                            <li><a href="~/Template/job-details.html">+ View More</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="main-button text-center">
-            <a href="jobs.html">View Jobs</a>
         </div>
     </div>
 </section>
+<!-- ***** Blog End ***** -->

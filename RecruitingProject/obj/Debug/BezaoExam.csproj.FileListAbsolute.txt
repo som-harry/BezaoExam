@@ -239,3 +239,15 @@ C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\bin\System.Web.Http.xml
 C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\bin\System.Web.Http.WebHost.dll
 C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\bin\System.Web.Http.WebHost.xml
 C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedResumeToDatabase.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedApplyForJob.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.RefreshDatabase.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedJobEntity.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedYourGreatestAchievement.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.ChangeJobIdFromApplicant.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.SeedJobs.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.ApplicationStatus.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedJobDeadLine.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedDeadApplyForJob.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.ChangeByteToString.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.changecloudinarybacktobinary.resources
+C:\Users\Chisom\source\repos\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedToJobEntity.resources
