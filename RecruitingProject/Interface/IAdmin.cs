@@ -16,7 +16,11 @@ namespace RecruitingProject.Interface
         int AcceptedRequest();
         int RejectedtedRequest();
         int PendingRequest();
-        List<Applicant> GetAllApplicants();
+        List<Applicant> GetAllAcceptedRequest();
+        ReviewViewModel Details(int id);
+
+        List<Applicant> GetAllPendingRequest();
+        List<Applicant> GetAllRejectedRequest();
         void display(int id);
 
     }

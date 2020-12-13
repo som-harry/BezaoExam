@@ -225,6 +225,7 @@
     <Compile Include="Interface\IApplicant.cs" />
     <Compile Include="Interface\IApplyForJob.cs" />
     <Compile Include="Interface\IJob.cs" />
+    <Compile Include="Interface\IMail.cs" />
     <Compile Include="Migrations\202011100919032_SeedingAdmin.cs" />
     <Compile Include="Migrations\202011100919032_SeedingAdmin.Designer.cs">
       <DependentUpon>202011100919032_SeedingAdmin.cs</DependentUpon>
@@ -294,6 +295,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobFormViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ReviewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\ApplicantService.cs" />
@@ -788,7 +790,6 @@
     <Content Include="Views\ApplyForJob\ReviewPage.cshtml" />
     <Content Include="Views\Applicant\EditForm.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\GetAllApplicants.cshtml" />
     <Content Include="Views\Applicant\Contact.cshtml" />
     <Content Include="Views\Admin\GetAllAvaliableJobs.cshtml" />
     <Content Include="Views\Admin\GetAllSubmittedApplication.cshtml" />
@@ -1036,6 +1037,13 @@
     <Content Include="Template\Dashboard\scss\widgets\widgets.scss" />
     <Content Include="Views\Admin\Display.cshtml" />
     <Content Include="Views\Applicant\Accept.cshtml" />
+    <Content Include="Views\Shared\_AdminHeader.cshtml" />
+    <Content Include="Views\Shared\_AdminFooter.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\GetAllPendingRequest.cshtml" />
+    <Content Include="Views\Admin\GetAllAcceptedRequest.cshtml" />
+    <Content Include="Views\Admin\GetAllRejectedRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

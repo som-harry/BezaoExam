@@ -27,6 +27,7 @@ namespace RecruitingProject.Controllers
                 RejectedRequest = _adminRepo.RejectedtedRequest(),
                 PendingRequest = _adminRepo.PendingRequest()
             };
+          
             return View(viewModel);
         }
 
@@ -44,11 +45,23 @@ namespace RecruitingProject.Controllers
             return View("GetAllSubmittedApplication", viewModel);
         }
 
-        public ActionResult GetAllApplicants()
+        public ActionResult GetAllAcceptedRequest()
         {
-            var viewModel = _adminRepo.GetAllApplicants();
+            var viewModel = _adminRepo.GetAllAcceptedRequest();
 
-            return View("GetAllApplicants", viewModel);
+            return View(viewModel);
+        }
+        public ActionResult GetAllRejectedRequest()
+        {
+            var viewModel = _adminRepo.GetAllRejectedRequest();
+
+            return View(viewModel);
+        }
+        public ActionResult GetAllPendingRequest()
+        {
+            var viewModel = _adminRepo.GetAllPendingRequest();
+
+            return View(viewModel);
         }
 
         public ActionResult GetAllApplicantfortheJob(int id)
@@ -61,6 +74,12 @@ namespace RecruitingProject.Controllers
         {
             _adminRepo.display(id);
             return View();
+        }
+
+        public ActionResult Details(int id)
+        {
+            var viewModel = _adminRepo.Details(id);
+            return View(viewModel);
         }
     }
 }

@@ -4,17 +4,16 @@
     ViewBag.Title = "ReviewPage";
 }
 
-<h2 style="margin-top: 20px"> Review Page </h2>
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+@Html.Partial("_Header")
+<div class="container">
+    <h2 style="margin-top: 20px"> Review Page </h2>
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
 
-<link rel="stylesheet" href="~/Template/assets/css/style.css">
+    <h4 style="padding-top:15px">You applied for  the  @Model.JobRole  position </h4>
 
-<h4 style="padding-top:15px">You applied for  the  @Model.JobRole  position </h4>
+    <h4> You can also which to change your Crendentials from the button below</h4>
 
-<h4> You can also which to change your Crendentials from the button below</h4>
+    @Html.ActionLink("Edit Your Credentials", "Edit", "Applicant", null, new { @class = "btn btn-primary" })
 
-@Html.ActionLink("Edit Your Credentials", "Edit", "Applicant", null, new { @class = "btn btn-primary" })
-
-<button class="btn navbar-btn">@Html.ActionLink("Go Back", "Index", "Job")</button>
+    <button class="btn navbar-btn">@Html.ActionLink("Go Back", "Index", "Job")</button>
+</div>

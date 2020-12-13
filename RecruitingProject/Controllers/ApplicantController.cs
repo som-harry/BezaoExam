@@ -20,10 +20,12 @@ namespace RecruitingProject.Controllers
         private ApplicationSignInManager _signInManager;
 
         IApplicant _applicantRepo;
+        IMail _mailRepo;
 
-        public ApplicantController(IApplicant applicantRepo)
+        public ApplicantController(IApplicant applicantRepo, IMail mailRepo)
         {
             _applicantRepo = applicantRepo;
+            _mailRepo = mailRepo;
         }
 
         public ApplicationSignInManager SignInManager
@@ -122,7 +124,7 @@ namespace RecruitingProject.Controllers
         [HttpPost]
         public async Task<ActionResult> ContactMail(string message, string subject)
         {
-           await  NotificationRequest.SendMail("Chisomekeh71@gmail.com",message, subject);
+           await _mailRepo.SendMail("Chisomekeh71@gmail.com",message, subject);
             return RedirectToAction("Index", "job");
         }
 
@@ -133,7 +135,7 @@ namespace RecruitingProject.Controllers
 
             var user = await UserManager.FindByIdAsync(applicant.UserId);
             var mail = $"{applicant.FirstName} Congratulations, your application has been approved ";
-            await NotificationRequest.SendMail(user.Email, mail, "Your submission has been approved");
+            await _mailRepo.SendMail(user.Email, mail, "Your submission has been approved");
 
             return View("Accept", applicant);
         }
@@ -145,7 +147,7 @@ namespace RecruitingProject.Controllers
 
             var user = await UserManager.FindByIdAsync(applicant.UserId);
             var mail = $" Sorry {applicant.FirstName}, your application wasn't successful ";
-            await NotificationRequest.SendMail(user.Email, mail, "Your submission has been approved");
+            await _mailRepo.SendMail(user.Email, mail, "Your submission has been approved");
 
             return View("Accept",  applicant);
         }

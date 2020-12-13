@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecruitingProject.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -7,9 +8,9 @@ using System.Web;
 
 namespace RecruitingProject.Services
 {
-    public class NotificationRequest
+    public class NotificationRequest: IMail
     {
-        public static async Task SendMail(string recieverEmail, string messageBody, string messageSubject)
+        public  async Task SendMail(string recieverEmail, string messageBody, string messageSubject)
         {
             try
             {

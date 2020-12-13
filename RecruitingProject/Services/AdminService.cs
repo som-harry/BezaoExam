@@ -3,6 +3,7 @@ using RecruitingProject.Interface;
 using RecruitingProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -21,17 +22,12 @@ namespace RecruitingProject.Services
 
         public List<ApplyForJob> GetSubmittedApplication()
         {
-            return dbContext.context.ApplyForJobs.ToList();
+            return dbContext.context.ApplyForJobs.Include(a => a.Applicant).Include(j => j.Job).ToList();
         }
 
         public List<Job> GetAllJobs()
         {
             return dbContext.context.Jobs.ToList();
-        }
-
-        public List<Applicant> GetAllApplicants()
-        {
-            return dbContext.context.Applicants.ToList();
         }
 
         public List<Applicant> GetAllApplicantfortheJob(int id)
@@ -90,6 +86,31 @@ namespace RecruitingProject.Services
             //convert resume byte[] back to pdf file to be display
             File.WriteAllBytes(HttpContext.Current.Server.MapPath("~/Document/resume.pdf"), applyForJob.Resume);
          
+        }
+
+        public ReviewViewModel Details(int id)
+        {
+
+            var viewModel = new ReviewViewModel
+            {
+                Applicants = dbContext.context.Applicants.SingleOrDefault(a => a.id == id),
+                ApplyForJobs = dbContext.context.ApplyForJobs.SingleOrDefault(a => a.Id == id),
+                Jobs = dbContext.context.Jobs.SingleOrDefault(a => a.Id == id)
+            };
+
+            return viewModel;
+        }
+        public List<Applicant> GetAllPendingRequest()
+        {
+            return dbContext.context.Applicants.Where(a => a.ApplicationStatus == ApplicationStatus.pending).ToList();
+        }
+        public List<Applicant> GetAllAcceptedRequest()
+        {
+            return dbContext.context.Applicants.Where(a => a.ApplicationStatus == ApplicationStatus.accept).ToList();
+        }
+        public List<Applicant> GetAllRejectedRequest()
+        {
+            return dbContext.context.Applicants.Where(a => a.ApplicationStatus == ApplicationStatus.accept).ToList();
         }
 
     }

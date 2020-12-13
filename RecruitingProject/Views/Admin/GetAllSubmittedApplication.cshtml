@@ -1,40 +1,56 @@
-﻿@model IEnumerable<RecruitingProject.Entity.ApplyForJob>
+﻿@{Layout = null; }
+@model IEnumerable<RecruitingProject.Entity.ApplyForJob>
 @{
-    ViewBag.Title = "GetAllSubmittedApplication";
+    ViewBag.Title = "SubmittedApplication";
 }
-
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
-
-<link rel="stylesheet" href="~/Template/assets/css/style.css">
-
-<table id="jobs" class="table table-bordered table-hover dbtable">
-    <thead>
-        <tr>
-            <th>Resume</th>
-            <th>Position Applied</th>
-            <th> Applicant Id</th>
-        </tr>
-
-    </thead>
-    <tbody>
-
-        @{
-            foreach (var apply in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(" Download Resume", "Display", "Admin", new { id = apply.Id }, null)</td>
-                    <td>@apply.JobRole</td>
-                    <td>@apply.ApplicantId</td>
-                </tr>
-            }
+@Html.Partial("_AdminHeader")
+<style>
+    th{
+        width:5%;
+    }
+</style>
+   @{
+        if (!Model.Any())
+        {
+            ViewBag.Message = "Please there is no list of submitted Application";
         }
+        else
+        {
+            <table class="table table-striped table-striped table-responsive center  ">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Stack</th>
+                        <th scope="col">Job Name</th>
+                        <th scope="col">Job Deadline</th>
+                        <th scope="col">Date Applied</th>
+                        <th scope="col">Applicant Status</th>
+                        <th scope="col">Applicant Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var data in Model)
+                        {
+                            <tr>
 
-    </tbody>
-</table>
-<div>
+                                <td>@data.Applicant.FirstName</td>
+                                <td>@data.JobRole</td>
+                                <td>@data.Job.JobName</td>
+                                <td>@string.Format("{0:d MMM yyyy}", data.Job.JobDeadLine)</td>
+                                <td>@string.Format("{0:d MMM yyyy}", data.DateApply)</td>
+                                <td>@data.Applicant.ApplicationStatus</td>
+                                <td>@Html.ActionLink("Details", "Details", "Admin", new { id = data.Applicant.id }, new { @class = "btn btn-info" })</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+    }
+<div style="margin: 20px">
     @Html.ActionLink("Return back", "Index", "Admin")
 </div>
+@Html.Partial("_AdminFooter")
 
 

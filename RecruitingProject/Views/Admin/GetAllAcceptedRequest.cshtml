@@ -1,0 +1,31 @@
+﻿@{ Layout = null;}
+@model IEnumerable<RecruitingProject.Entity.Applicant>
+@{
+    ViewBag.Title = "GetAllAcceptedRequest";
+}
+@Html.Partial("_AdminHeader")
+
+<table class="table table-bordered table-responsive-lg">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var pending in Model)
+            {
+                <tr>
+                    <td>@pending.FirstName</td>
+                    <td>@pending.LastName</td>
+                    <td>@pending.ApplicationStatus</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@Html.Partial("_AdminFooter")
+

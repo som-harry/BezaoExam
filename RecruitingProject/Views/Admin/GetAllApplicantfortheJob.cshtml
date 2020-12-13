@@ -1,21 +1,16 @@
-﻿@model IEnumerable<RecruitingProject.Entity.Applicant>
+﻿@{Layout = null; }
+@model IEnumerable<RecruitingProject.Entity.Applicant>
 @{
     ViewBag.Title = "GetAllApplicantfortheJob";
 }
+@Html.Partial("_AdminHeader")
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
-
-<link rel="stylesheet" href="~/Template/assets/css/style.css">
-
-<table id="cant" class="table table-bordered table-hover dbtable">
+<table id="cant" class="table table-bordered table-hover table-responsive-lg dbtable">
     <thead>
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Accept</th>
-            <th>Reject</th>
+            <th> Applicant Status</th>
         </tr>
 
     </thead>
@@ -27,15 +22,17 @@
                 <tr>
                     <td>@applicant.FirstName</td>
                     <td>@applicant.LastName</td>
-                    <td>@Html.ActionLink("Accept", "Accept", "Applicant", new { id = applicant.id }, new { @class = "btn btn-info" })</td>
-                    <td>@Html.ActionLink("Reject", "Reject", "Applicant", new { id = applicant.id }, new { @class = "btn btn-danger" })</td>
+                    <td>@applicant.ApplicationStatus</td>
                 </tr>
             }
         }
 
     </tbody>
 </table>
-<div>
+
+<div style="margin: 20px">
     @Html.ActionLink("Return back", "Index", "Admin")
 </div>
+@Html.Partial("_AdminFooter")
+
 

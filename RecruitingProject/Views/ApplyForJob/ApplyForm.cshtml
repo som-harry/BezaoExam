@@ -3,40 +3,34 @@
 @{
     ViewBag.Title = "ApplyForm";
 }
+@Html.Partial("_Header")
+<div class="container">
+    @using (Html.BeginForm("Save", "ApplyForJob", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true, "Please fix the followings")
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+        <div class="form-group">
+            @Html.LabelFor(a => a.JobRole)
+            @Html.TextBoxFor(a => a.JobRole, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.JobRole)
+        </div>
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+        <div class="form-group">
+            @Html.LabelFor(a => a.WhatYourgreatestAchieviement)
+            @Html.TextAreaFor(a => a.WhatYourgreatestAchieviement, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.WhatYourgreatestAchieviement)
+        </div>
 
-<link rel="stylesheet" href="~/Template/assets/css/style.css">
-
-<h2 class="applicant">Please fill in the following form</h2>
-
-@using (Html.BeginForm("Save", "ApplyForJob", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true, "Please fix the followings")
-
-    <div class="form-group">
-        @Html.LabelFor(a => a.JobRole)
-        @Html.TextBoxFor(a => a.JobRole, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.JobRole)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(a => a.WhatYourgreatestAchieviement)
-        @Html.TextAreaFor(a => a.WhatYourgreatestAchieviement, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.WhatYourgreatestAchieviement)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(a => a.File)
-        @Html.TextBoxFor(a => a.File, new { type = "file" })
-        @Html.ValidationMessageFor(a => a.File)
-    </div>
-    @Html.HiddenFor(a => a.JobId)
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Submit</button>
-}
+        <div class="form-group">
+            @Html.LabelFor(a => a.File)
+            @Html.TextBoxFor(a => a.File, new { type = "file" })
+            @Html.ValidationMessageFor(a => a.File)
+        </div>
+        @Html.HiddenFor(a => a.JobId)
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

@@ -3,89 +3,88 @@
     ViewBag.Title = "JobForm";
 }
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+@Html.Partial("_Header")
 
-<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+<div class="container">
+    <h2 class="applicant">Please fill in the following form</h2>
+    @using (Html.BeginForm("Save", "Job", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<link rel="stylesheet" href="~/Template/assets/css/style.css">
+        <div class="form-group">
+            @Html.LabelFor(a => a.Amount)
+            @Html.TextBoxFor(a => a.Amount, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.Amount)
+        </div>
 
-<h2 class="applicant">Please fill in the following form</h2>
-@using (Html.BeginForm("Save", "Job", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(a => a.JobName)
+            @Html.TextBoxFor(a => a.JobName, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.JobName)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.Amount)
-        @Html.TextBoxFor(a => a.Amount, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.Amount)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.JobDescription)
+            @Html.TextAreaFor(a => a.JobDescription, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.JobDescription)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.JobName)
-        @Html.TextBoxFor(a => a.JobName, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.JobName)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.EmployerName)
+            @Html.TextBoxFor(a => a.EmployerName, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.EmployerName)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.JobDescription)
-        @Html.TextAreaFor(a => a.JobDescription, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.JobDescription)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.AboutEmployer)
+            @Html.TextAreaFor(a => a.AboutEmployer, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.AboutEmployer)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.EmployerName)
-        @Html.TextBoxFor(a => a.EmployerName, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.EmployerName)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.Email)
+            @Html.TextBoxFor(a => a.Email, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.Email)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.AboutEmployer)
-        @Html.TextAreaFor(a => a.AboutEmployer, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.AboutEmployer)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.MobileNumber)
+            @Html.TextBoxFor(a => a.MobileNumber, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.MobileNumber)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.Email)
-        @Html.TextBoxFor(a => a.Email, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.Email)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.Website)
+            @Html.TextBoxFor(a => a.Website, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.Website)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.MobileNumber)
-        @Html.TextBoxFor(a => a.MobileNumber, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.MobileNumber)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.OfficeLine)
+            @Html.TextBoxFor(a => a.OfficeLine, new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.OfficeLine)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.Website)
-        @Html.TextBoxFor(a => a.Website, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.Website)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.JobDeadLine)
+            @Html.TextBoxFor(a => a.JobDeadLine, "{0: d MM YYYY}", new { @class = " form-control" })
+            @Html.ValidationMessageFor(a => a.JobDeadLine)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.File)
+            @Html.TextBoxFor(a => a.File, new { type = "file" })
+            @Html.ValidationMessageFor(a => a.File)
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(a => a.OfficeLine)
-        @Html.TextBoxFor(a => a.OfficeLine, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.OfficeLine)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(a => a.JobDeadLine)
-        @Html.TextBoxFor(a => a.JobDeadLine, new { @class = " form-control" })
-        @Html.ValidationMessageFor(a => a.JobDeadLine)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(a => a.File)
-        @Html.TextBoxFor(a => a.File, new { type = "file" })
-        @Html.ValidationMessageFor(a => a.File)
-    </div>
-
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Submit</button>
-}
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
 
 
 

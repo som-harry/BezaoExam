@@ -19,9 +19,11 @@ namespace RecruitingProject.Controllers
         private ApplicationUserManager _manager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
 
         IApplyForJob _applyRepo;
-        public ApplyForJobController(IApplyForJob applyRepo)
+        IMail _mailRepo;
+        public ApplyForJobController(IApplyForJob applyRepo, IMail mailRepo)
         {
             _applyRepo = applyRepo;
+            _mailRepo = mailRepo;
         }
 
         private ApplicationUserManager UserManager
@@ -55,10 +57,10 @@ namespace RecruitingProject.Controllers
             var user = await UserManager.FindByIdAsync(userId);
 
             //send mail with the applicant info
-            var mail = $"Your application has been recieved," +
-                $" you applied for this position {viewModel.JobRole};" +
-                $" We acknowledge you to wait for our feedback";
-            await NotificationRequest.SendMail(user.Email, mail, "Application Submission");
+            var mail = $"{user.Email} has applied for a job," +
+                $" He applied for the position {viewModel.JobRole};" +
+                $" Please do well to accept or reject him ";
+            await _mailRepo.SendMail("chisomekeh71@gmail.com", mail, "Application Submission");
 
             return View("ReviewPage", viewModel);
         }

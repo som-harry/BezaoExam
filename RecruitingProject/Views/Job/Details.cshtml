@@ -1,4 +1,4 @@
-﻿@{Layout = null; }
+﻿
 @model RecruitingProject.Entity.Job
 @{
     ViewBag.Title = "Details";
@@ -10,33 +10,8 @@
 
 <link rel="stylesheet" href="~/Template/assets/css/style.css">
 
-<header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">Job Agency<em> Website</em></a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="" class="">Home</a></li>
-                        <li><a href="">Jobs</a></li>
-                        <li style="color:black;">@Html.Partial("_LoginPartial")</li>
-
-                    </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- ***** Header Area End ***** -->
 <!-- ***** Call to Action Start ***** -->
-<section class="section section-bg" id="call-to-action">
+<section class="section section-bg" id="call-to-action" style="background-image: url(../../Template/assets/images/banner-image-1-1920x500.jpg )">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -61,7 +36,7 @@
         <br>
         <br>
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel right" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -146,21 +121,4 @@
         </div>
     </div>
 </section>
-<!-- ***** Fleet Ends ***** -->
-<!-- jQuery -->
-<script src=@Url.Content("~/Template/assets/js/jquery-2.1.0.min.js")></script>
 
-<!-- Bootstrap -->
-<script src=@Url.Content("~/Template/assets/js/popper.js")></script>
-<script src=@Url.Content("Template/assets/js/bootstrap.min.js")></script>
-
-<!-- Plugins -->
-<script src=@Url.Content("~/Template/assets/js/scrollreveal.min.js")></script>
-<script src=@Url.Content("~/Template/assets/js/waypoints.min.js")></script>
-<script src=@Url.Content("~/Template/assets/js/jquery.counterup.min.js")></script>
-<script src=@Url.Content("~/Template/assets/js/imgfix.min.js")></script>
-<script src=@Url.Content("~/Template/assets/js/mixitup.js")></script>
-<script src=@Url.Content("~/Template/assets/js/accordions.js")></script>
-
-<!-- Global Init -->
-<script src=@Url.Content("~/Template/assets/js/custom.js")></script>

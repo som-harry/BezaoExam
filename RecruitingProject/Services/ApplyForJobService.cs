@@ -28,7 +28,6 @@ namespace RecruitingProject.Services
         public ApplyForJob SubmitResume(ApplyFormViewModel model)
         {
             //setting up the file
-            //setting up the file
             byte[] uploadedFile = new byte[model.File.InputStream.Length];
             model.File.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
 

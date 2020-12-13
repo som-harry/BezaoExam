@@ -2,11 +2,31 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
 
 <link rel="stylesheet" href="~/Template/assets/css/style.css">
+
+<!-- ***** Main Banner Area Start ***** -->
+<div class="main-banner container-fluid body-content" id="top" style="margin: 0; padding:0;">
+    <video autoplay muted loop id="bg-video">
+        <source src=@Url.Content("/Template/assets/images/video.mp4") type="video/mp4" />
+    </video>
+
+    <div class="video-overlay header-text">
+        <div class="caption">
+            <h6>Thank you for visiting Us</h6>
+            <h2>Find the perfect <em>Job</em></h2>
+            <div class="main-button">
+                @*<a href="contact.html">Contact Us</a>*@
+                @Html.ActionLink("Contact Us", "Contact", "Applicant")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
 
 @if (!Model.Any())
 {

@@ -6,19 +6,26 @@ using System.Web.Mvc;
 
 namespace RecruitingProject.Controllers
 {
+   [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            if (User.IsInRole("ADMIN"))
+                return RedirectToAction("Index", "Admin");
+
+            if (User.IsInRole("APPLICANTS"))
+                return RedirectToAction("Index", "Job");
+
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
         //public ActionResult Contact()
         //{

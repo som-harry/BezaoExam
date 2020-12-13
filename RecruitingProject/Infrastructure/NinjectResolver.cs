@@ -26,7 +26,7 @@ namespace RecruitingProject.Infrastructure
             _kernel.Bind<IAdmin>().To<AdminService>();
             _kernel.Bind<IApplyForJob>().To<ApplyForJobService>();
             _kernel.Bind<IJob>().To<JobService>();
-            _kernel.Bind<NotificationRequest>().ToSelf();
+            _kernel.Bind<IMail>().To<NotificationRequest>();
         }
 
         public IDependencyScope BeginScope()
