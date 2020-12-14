@@ -100,7 +100,6 @@ namespace RecruitingProject.Services
 
             return applicant;
         }
-
         public Applicant Reject(int id)
         {
             // get the current applicant 
@@ -118,7 +117,24 @@ namespace RecruitingProject.Services
 
             return applicant;
         }
+        public List<Job> UserDashboard()
+        {
+            var userId = Current.User.Identity.GetUserId();
+            var user= dbContext.context.Applicants.SingleOrDefault(a => a.User.Id == userId);
 
+            var applicant = dbContext.context.Applicants.ToList().Where(j => j.id == user.id);
+
+            var job = dbContext.context.Jobs.Include(a => a.Applicants).ToList();
+
+            List<Job> jobs = new List<Job>();
+
+            foreach(var newapplicant in applicant)
+            {
+               var save = job.Find(a => a.Id == newapplicant.id);
+                jobs.Add(save);
+            }
+            return job;
+        }
 
     }
 }

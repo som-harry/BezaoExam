@@ -1,0 +1,28 @@
+﻿@model IEnumerable<RecruitingProject.Entity.Job>
+@{
+    ViewBag.Title = "UserDashboard";
+}
+@Html.Partial("_Header")
+<table class="table table-bordered table-responsive-lg">
+    <thead>
+        <tr>
+            <th scope="col">Job Name</th>
+            <th scope="col"> Excepted Salary </th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var job in Model)
+            {
+                <tr>
+                    <td>@job.JobName</td>
+                    <td>@job.Amount</td>
+                    <td>@Html.ActionLink("Edit Credential", "Edit","Applicant", new {id = job.Id }, new { @class = "btn btn-info" }) </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

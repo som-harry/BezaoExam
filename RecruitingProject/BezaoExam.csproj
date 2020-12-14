@@ -1055,6 +1055,7 @@
     <Content Include="Views\Admin\GetAllPendingRequest.cshtml" />
     <Content Include="Views\Admin\GetAllAcceptedRequest.cshtml" />
     <Content Include="Views\Admin\GetAllRejectedRequest.cshtml" />
+    <Content Include="Views\Applicant\UserDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,7 @@ namespace RecruitingProject.Interface
     {
         void CreateApplicant(ApplicantFormViewModel model, string userid);
         EditFormViewModel Edit();
+        List<Job> UserDashboard();
         void UpdateApplicant(EditFormViewModel model);
         Applicant Accept(int id);
         Applicant Reject(int id);

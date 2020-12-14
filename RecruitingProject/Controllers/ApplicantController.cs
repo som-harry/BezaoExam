@@ -151,5 +151,11 @@ namespace RecruitingProject.Controllers
 
             return View("Accept",  applicant);
         }
+
+        public ActionResult UserDashboard()
+        {
+            var viewModel = _applicantRepo.UserDashboard();
+            return View(viewModel);
+        }
     }
 }
