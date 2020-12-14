@@ -52,17 +52,26 @@ namespace RecruitingProject.Controllers
         [HttpPost]
         public async Task<ActionResult> Save(ApplyFormViewModel model)
         {
-            var userId = Current.User.Identity.GetUserId();
-            var viewModel =   _applyRepo.SubmitResume(model);
-            var user = await UserManager.FindByIdAsync(userId);
+            try
+            {
+                var userId = Current.User.Identity.GetUserId();
+                var viewModel = _applyRepo.SubmitResume(model);
+                var user = await UserManager.FindByIdAsync(userId);
 
-            //send mail with the applicant info
-            var mail = $"{user.Email} has applied for a job," +
-                $" He applied for the position {viewModel.JobRole};" +
-                $" Please do well to accept or reject him ";
-            await _mailRepo.SendMail("chisomekeh71@gmail.com", mail, "Application Submission");
+                //send mail with the applicant info
+                var mail = $"{user.Email} has applied for a job," +
+                    $" He applied for the position {viewModel.JobRole};" +
+                    $" Please do well to accept or reject him ";
+                await _mailRepo.SendMail("judeharry71@gmail.com", mail, "Application Submission");
+                return View("ReviewPage", viewModel);
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = true;
+                ViewBag.Error = $"The Job has been applied before by you {e}";
+            }
 
-            return View("ReviewPage", viewModel);
+           return View("ApplyForm");
         }
     }
 }

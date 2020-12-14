@@ -21,7 +21,5 @@ namespace RecruitingProject.Interface
 
         List<Applicant> GetAllPendingRequest();
         List<Applicant> GetAllRejectedRequest();
-        void display(int id);
-
     }
 }

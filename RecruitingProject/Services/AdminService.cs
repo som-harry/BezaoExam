@@ -78,16 +78,6 @@ namespace RecruitingProject.Services
 
             return count;
         }
-
-        public void display(int id)
-        {
-            var applyForJob = dbContext.context.ApplyForJobs.SingleOrDefault(a => a.Id == id);
-
-            //convert resume byte[] back to pdf file to be display
-            File.WriteAllBytes(HttpContext.Current.Server.MapPath("~/Document/resume.pdf"), applyForJob.Resume);
-         
-        }
-
         public ReviewViewModel Details(int id)
         {
 
@@ -110,7 +100,7 @@ namespace RecruitingProject.Services
         }
         public List<Applicant> GetAllRejectedRequest()
         {
-            return dbContext.context.Applicants.Where(a => a.ApplicationStatus == ApplicationStatus.accept).ToList();
+            return dbContext.context.Applicants.Where(a => a.ApplicationStatus == ApplicationStatus.reject).ToList();
         }
 
     }

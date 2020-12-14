@@ -21,6 +21,8 @@
         width: 400px;
         max-width: 400px;
         flex-grow: 1;
+        padding:10px;
+      
     }
    
 </style>
@@ -33,10 +35,9 @@
         <div class="box two ">
             <h3>Name: @Model.Applicants.FirstName @Model.Applicants.LastName</h3>
             <h3>Birthday: @string.Format("{0 : d MMM yyyy}", Model.Applicants.Dob)</h3>
-            <h3>ApplicationStatus: @Model.Applicants.ApplicationStatus </h3>
+            <h3>Application Status: @Model.Applicants.ApplicationStatus </h3>
             <h3>Stack: @Model.ApplyForJobs.JobRole </h3>
-            <h3>Download Resume: @Html.ActionLink("Download", "Display", "Admin", new { id = Model.ApplyForJobs.Id }, null) </h3>
-
+            <h3>View Resume:<button><a href="@Url.Content(Model.ApplyForJobs.UploadResume)"  target="_blank">View </a></button></h3>
         </div>
     </div>
 

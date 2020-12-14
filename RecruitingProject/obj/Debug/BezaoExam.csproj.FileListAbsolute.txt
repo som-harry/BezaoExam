@@ -396,3 +396,6 @@ C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\BezaoExam.csproj.C
 C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\BezaoExam.csproj.CopyComplete
 C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.dll
 C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.pdb
+C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedCategorytoJob.resources
+C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.ChangethebytesavingofFile.resources
+C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AdminUpdated.resources

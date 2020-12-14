@@ -31,6 +31,7 @@ namespace RecruitingProject.Services
                 File = new FileDescription(model.File.FileName, model.File.InputStream)
             };
 
+
             var upload = cloudinary.Upload(image);
             Job newjob = new Job()
             {

@@ -69,13 +69,6 @@ namespace RecruitingProject.Controllers
             var viewModel = _adminRepo.GetAllApplicantfortheJob(id);
             return View("GetAllApplicantfortheJob", viewModel);
         }
-
-        public ActionResult Display(int id)
-        {
-            _adminRepo.display(id);
-            return View();
-        }
-
         public ActionResult Details(int id)
         {
             var viewModel = _adminRepo.Details(id);

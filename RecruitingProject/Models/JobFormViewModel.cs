@@ -52,7 +52,7 @@ namespace RecruitingProject.Models
         public DateTime JobDeadLine { get; set; }
 
         [Required]
-        [Display(Name = "Upload your ProductImage")]
+        [Display(Name = "Upload your Job Image")]
         public HttpPostedFileBase File { get; set; }
 
     }

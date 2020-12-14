@@ -19,38 +19,56 @@ namespace RecruitingProject.Services
     [Authorize(Roles ="ADMIN")]
     public class ApplyForJobService : IApplyForJob
     {
-        private CloudinaryInitialization _cloudinaryInitialization = new CloudinaryInitialization();
         ContextService dbContext;
         public ApplyForJobService(ContextService _context)
         {
             dbContext = _context;
         }
+
+        public string SaveResume(ApplyFormViewModel model)
+        {
+            //change file name
+            var filename = Path.GetFileNameWithoutExtension(model.File.FileName);
+           
+            var extention = Path.GetExtension(model.File.FileName);
+
+            filename = filename + DateTime.Now.ToString("yymmssfff") + extention;
+
+            //adding the new file name to the file, file path
+            string filePath = "~/Document/" + filename;
+
+            filename = Path.Combine(HttpContext.Current.Server.MapPath("~/Document/"), filename);
+
+            //saving the file in the folder
+            model.File.SaveAs(filename);
+
+            return filePath;
+        }
         public ApplyForJob SubmitResume(ApplyFormViewModel model)
         {
-            //setting up the file
-            byte[] uploadedFile = new byte[model.File.InputStream.Length];
-            model.File.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
-
             var job = dbContext.context.Jobs.FirstOrDefault(job1 => job1.Id == model.JobId);
             var userId = Current.User.Identity.GetUserId();
             var user = dbContext.context.Applicants.SingleOrDefault(a => a.User.Id == userId);
 
-            //check if the job is null and throw appropriate error
+            //check if the job is null 
+          
 
-            ApplyForJob applyForJob = new ApplyForJob()
-            {
-                JobRole = model.JobRole,
-                Resume =uploadedFile,
-                Job = job,
-                DateApply = DateTime.Now,
-                Applicant = user,
-                JobId = job.Id,
-                WhatYourgreatestAchieviement = model.WhatYourgreatestAchieviement
-            };
-            dbContext.context.ApplyForJobs.Add(applyForJob);
-            dbContext.context.SaveChanges();
+                ApplyForJob applyForJob = new ApplyForJob()
+                {
+                    JobRole = model.JobRole,
+                    UploadResume = SaveResume(model),
+                    Job = job,
+                    DateApply = DateTime.Now,
+                    Applicant = user,
+                    JobId = job.Id,
+                    WhatYourgreatestAchieviement = model.WhatYourgreatestAchieviement
+                };
+                dbContext.context.ApplyForJobs.Add(applyForJob);
+                dbContext.context.SaveChanges();
 
-            return applyForJob;
+                return applyForJob;
+            
+           
         }
     }
 }

@@ -124,7 +124,7 @@ namespace RecruitingProject.Controllers
         [HttpPost]
         public async Task<ActionResult> ContactMail(string message, string subject)
         {
-           await _mailRepo.SendMail("Chisomekeh71@gmail.com",message, subject);
+           await _mailRepo.SendMail("judeharry71@gmail.com",message, subject);
             return RedirectToAction("Index", "job");
         }
 

@@ -18,8 +18,8 @@ namespace RecruitingProject.Services
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new System.Net.NetworkCredential()
                 {
-                    UserName = "chisomekeh71@gmail.com",
-                    Password = "judeallowedyou1519"
+                    UserName = "judeharry71@gmail.com",
+                    Password = "sommyallowedyou1519"
                 };
                 smtpClient.EnableSsl = true;
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -28,7 +28,7 @@ namespace RecruitingProject.Services
                 {
                     To = { recieverEmail },
                     Body = messageBody,
-                    From = new MailAddress("harryapp@gmail.com"),
+                    From = new MailAddress("chisomekeh71@gmail.com"),
                     Subject = messageSubject
                 };
 

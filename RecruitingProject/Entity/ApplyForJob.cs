@@ -12,8 +12,8 @@ namespace RecruitingProject.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public byte[] Resume { get; set; }
         public string JobRole { get; set; }
+        public string UploadResume { get; set; }
         public DateTime DateApply { get; set; }
         public string WhatYourgreatestAchieviement { get; set; }
         public int JobId { get; set; }

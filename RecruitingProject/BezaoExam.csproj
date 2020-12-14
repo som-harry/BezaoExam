@@ -286,6 +286,18 @@
     <Compile Include="Migrations\202011211652022_AddedToJobEntity.Designer.cs">
       <DependentUpon>202011211652022_AddedToJobEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012131356195_AddedCategorytoJob.cs" />
+    <Compile Include="Migrations\202012131356195_AddedCategorytoJob.Designer.cs">
+      <DependentUpon>202012131356195_AddedCategorytoJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012132355185_ChangethebytesavingofFile.cs" />
+    <Compile Include="Migrations\202012132355185_ChangethebytesavingofFile.Designer.cs">
+      <DependentUpon>202012132355185_ChangethebytesavingofFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012140902419_AdminUpdated.cs" />
+    <Compile Include="Migrations\202012140902419_AdminUpdated.Designer.cs">
+      <DependentUpon>202012140902419_AdminUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcceptAndRejectViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1035,7 +1047,6 @@
     <Content Include="Template\Dashboard\scss\widgets\profile.scss" />
     <Content Include="Template\Dashboard\scss\widgets\steamline.scss" />
     <Content Include="Template\Dashboard\scss\widgets\widgets.scss" />
-    <Content Include="Views\Admin\Display.cshtml" />
     <Content Include="Views\Applicant\Accept.cshtml" />
     <Content Include="Views\Shared\_AdminHeader.cshtml" />
     <Content Include="Views\Shared\_AdminFooter.cshtml" />
@@ -1107,6 +1118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011211652022_AddedToJobEntity.resx">
       <DependentUpon>202011211652022_AddedToJobEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012131356195_AddedCategorytoJob.resx">
+      <DependentUpon>202012131356195_AddedCategorytoJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012132355185_ChangethebytesavingofFile.resx">
+      <DependentUpon>202012132355185_ChangethebytesavingofFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012140902419_AdminUpdated.resx">
+      <DependentUpon>202012140902419_AdminUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
