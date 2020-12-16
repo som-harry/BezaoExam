@@ -7,6 +7,7 @@ using RecruitingProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 
 namespace RecruitingProject.Services
@@ -128,7 +129,7 @@ namespace RecruitingProject.Services
         }
         public List<Job> GetAllJobs()
         {
-            return dbContext.context.Jobs.ToList();
+            return dbContext.context.Jobs.Include(c => c.Category).ToList();
         }
     }
 }

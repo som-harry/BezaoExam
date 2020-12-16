@@ -40,7 +40,7 @@ namespace RecruitingProject.Controllers
             if (ModelState.IsValid)
             {
                 _jobRepo.CreateJob(model);
-                return View("Index");
+                return View("MoreJobs");
             }
 
             else
