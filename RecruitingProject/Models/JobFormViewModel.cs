@@ -11,6 +11,10 @@ namespace RecruitingProject.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Category")]
+        public string Category { get; set; }
+
+
         [Required]
         [Display(Name = "The  Job Name")]
         public string JobName { get; set; }

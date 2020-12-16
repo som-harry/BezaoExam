@@ -22,7 +22,7 @@ namespace RecruitingProject.Controllers
         // GET: Job
         public ActionResult Index()
         {
-            var job = _jobRepo.GetAllJobs();
+            var job = _jobRepo.GetThreeJobs();
             return View(job);
         }
 
@@ -37,9 +37,34 @@ namespace RecruitingProject.Controllers
         [HttpPost]
         public ActionResult Save(JobFormViewModel model)
         {
-            _jobRepo.CreateJob(model);
+            if (ModelState.IsValid)
+            {
+                _jobRepo.CreateJob(model);
+                return View("Index");
+            }
 
-            return RedirectToAction("Index", "Home");
+            else
+            {
+                ModelState.AddModelError("1", "Failed to create job");
+            }
+            return View("JobForm");
+
+        }
+
+        [Authorize(Roles = "ADMIN")]
+        public ActionResult Edit(int id)
+        {
+            var viewModel = _jobRepo.Edit(id);
+            
+            return View(viewModel);
+        }
+
+        [Authorize(Roles = "ADMIN")]
+        [HttpPost]
+        public ActionResult UpdateJob(JobEditFormViewModel model, int id)
+        {
+            _jobRepo.UpdateJob(model, id);
+            return RedirectToAction("Index", "Admin");
         }
 
         [Authorize(Roles = "APPLICANTS")]
@@ -56,7 +81,15 @@ namespace RecruitingProject.Controllers
                 ViewBag("No job found");
             }
 
-            return RedirectToAction("Index", "Job");
+            return View("Index");
+        }
+
+        [AllowAnonymous]
+        // GET: Job
+        public ActionResult ViewMoreJob()
+        {
+            var job = _jobRepo.GetAllJobs();
+            return View("MoreJobs",job);
         }
     }
 }

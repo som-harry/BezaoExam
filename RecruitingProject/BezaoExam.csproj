@@ -69,6 +69,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -215,6 +216,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entity\Applicant.cs" />
     <Compile Include="Entity\ApplyForJob.cs" />
+    <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Job.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -298,6 +300,14 @@
     <Compile Include="Migrations\202012140902419_AdminUpdated.Designer.cs">
       <DependentUpon>202012140902419_AdminUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012152348299_changeoncategories.cs" />
+    <Compile Include="Migrations\202012152348299_changeoncategories.Designer.cs">
+      <DependentUpon>202012152348299_changeoncategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012160016383_PopulateTheCategoryTable.cs" />
+    <Compile Include="Migrations\202012160016383_PopulateTheCategoryTable.Designer.cs">
+      <DependentUpon>202012160016383_PopulateTheCategoryTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcceptAndRejectViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -305,6 +315,7 @@
     <Compile Include="Models\ApplyFormViewModel.cs" />
     <Compile Include="Models\EditFormViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobEditFormViewModel.cs" />
     <Compile Include="Models\JobFormViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ReviewViewModel.cs" />
@@ -1056,6 +1067,8 @@
     <Content Include="Views\Admin\GetAllAcceptedRequest.cshtml" />
     <Content Include="Views\Admin\GetAllRejectedRequest.cshtml" />
     <Content Include="Views\Applicant\UserDashboard.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\MoreJobs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1129,6 +1142,15 @@
     <EmbeddedResource Include="Migrations\202012140902419_AdminUpdated.resx">
       <DependentUpon>202012140902419_AdminUpdated.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012152348299_changeoncategories.resx">
+      <DependentUpon>202012152348299_changeoncategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012160016383_PopulateTheCategoryTable.resx">
+      <DependentUpon>202012160016383_PopulateTheCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

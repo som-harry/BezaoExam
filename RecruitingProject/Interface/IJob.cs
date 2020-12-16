@@ -11,6 +11,9 @@ namespace RecruitingProject.Interface
     public interface IJob
     {
         void CreateJob(JobFormViewModel model);
+        void UpdateJob(JobEditFormViewModel model, int id);
+        JobEditFormViewModel Edit(int id);
+        List<Job> GetThreeJobs();
         List<Job> GetAllJobs();
         Job Details(int id);
     }

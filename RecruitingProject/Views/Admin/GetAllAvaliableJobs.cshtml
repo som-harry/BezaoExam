@@ -12,6 +12,7 @@
             <th>Pay</th>
             <th>Dead line</th>
             <th>Applicant</th>
+            <th>Edit Job</th>
         </tr>
 
     </thead>
@@ -25,6 +26,7 @@
                     <td>@job.Amount</td>
                     <td>@string.Format("{0:d MMM yyyy}", job.JobDeadLine)</td>
                     <td>@Html.ActionLink("View All Applicant", "GetAllApplicantfortheJob", "Admin", new { id = job.Id }, new { @class = "btn btn-info" })</td>
+                    <td>@Html.ActionLink("Update Job", "Edit", "Job", new { id = job.Id }, new { @class = "btn btn-info" })</td>
                 </tr>
             }
         }

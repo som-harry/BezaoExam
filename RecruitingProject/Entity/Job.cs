@@ -24,5 +24,8 @@ namespace RecruitingProject.Entity
         public DateTime JobDeadLine { get; set; }
         public decimal Amount { get; set; }
         public ICollection<Applicant> Applicants { get; set; }
+        public int? CategoryId { get; set; }
+        public Category Category { get; set; }
+
     }
 }

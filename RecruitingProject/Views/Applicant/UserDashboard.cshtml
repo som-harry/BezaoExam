@@ -3,12 +3,16 @@
     ViewBag.Title = "UserDashboard";
 }
 @Html.Partial("_Header")
-<table class="table table-bordered table-responsive-lg">
+
+<h6 style="margin:15px"> Please always check your mail, you will be notified once your application have been accepted or rejected  </h6>
+
+<table class="table table-bordered table-responsive-lg" >
     <thead>
         <tr>
             <th scope="col">Job Name</th>
             <th scope="col"> Excepted Salary </th>
-            <th scope="col">Edit</th>
+            <th scope="col">Employer Name</th>
+            <th scope="col">Phone Number</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +22,8 @@
                 <tr>
                     <td>@job.JobName</td>
                     <td>@job.Amount</td>
-                    <td>@Html.ActionLink("Edit Credential", "Edit","Applicant", new {id = job.Id }, new { @class = "btn btn-info" }) </td>
+                    <td>@job.EmployerName</td>
+                    <td>@job.OfficeLine</td>
                 </tr>
             }
         }

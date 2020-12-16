@@ -124,14 +124,14 @@ namespace RecruitingProject.Services
 
             var applicant = dbContext.context.Applicants.ToList().Where(j => j.id == user.id);
 
-            var job = dbContext.context.Jobs.Include(a => a.Applicants).ToList();
+            var job = dbContext.context.Jobs.ToList();
 
             List<Job> jobs = new List<Job>();
 
             foreach(var newapplicant in applicant)
             {
                var save = job.Find(a => a.Id == newapplicant.id);
-                jobs.Add(save);
+               jobs.Add(save);
             }
             return job;
         }

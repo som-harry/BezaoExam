@@ -56,9 +56,10 @@ else
                             <div class="down-content">
                                 <span> <sup>$</sup>@job.Amount </span>
 
-                                <h4>click on view more to apply for the job as applicant </h4>
+                                <p>click on view more to apply for the job as applicant </p>
 
-                                <p>@job.JobName</p>
+                                <h6>@job.JobName</h6
+>
 
                                 <ul class="social-icons">
                                     <li>@Html.ActionLink("+ View More", "Details", "Job", new { id = job.Id }, null)</li>
@@ -71,7 +72,7 @@ else
             </div>
             <br>
             <div class="main-button text-center">
-                <a href="">View Jobs</a>
+               <span>@Html.ActionLink(" View More", "ViewMoreJob", "Job", null, new { @class = "btn btn-info center" })</span>
             </div>
         </div>
     </section>

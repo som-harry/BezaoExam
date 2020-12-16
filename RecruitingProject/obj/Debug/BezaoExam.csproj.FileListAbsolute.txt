@@ -399,3 +399,5 @@ C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.
 C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AddedCategorytoJob.resources
 C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.ChangethebytesavingofFile.resources
 C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.AdminUpdated.resources
+C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.changeoncategories.resources
+C:\Users\Chisom\Desktop\BezaoExam\RecruitingProject\obj\Debug\RecruitingProject.Migrations.PopulateTheCategoryTable.resources

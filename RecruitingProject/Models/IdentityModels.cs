@@ -24,6 +24,8 @@ namespace RecruitingProject.Models
         public DbSet<Applicant> Applicants { get; set; }
         public DbSet<ApplyForJob> ApplyForJobs { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
         public ApplicationDbContext()
             : base("BezaoExam", throwIfV1Schema: false)
         {
