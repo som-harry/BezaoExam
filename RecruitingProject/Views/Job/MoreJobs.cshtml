@@ -35,34 +35,8 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <form action="#">
-                    <h5 style="margin-bottom: 15px">Type</h5>
-
-                    <div>
-                        <label>
-                            <input type="checkbox">
-
-                            <span>Contract (5)</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            <input type="checkbox">
-
-                            <span>Full time (5)</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <label>
-                            <input type="checkbox">
-
-                            <span>Internship (5)</span>
-                        </label>
-                    </div>
-
-                    <br>
+                @using (Html.BeginForm("FindParticularJobs", "Job", FormMethod.Post, new { @name = "myForm", @id = "myForm" }))
+                {
 
                     <h5 style="margin-bottom: 15px">Category</h5>
 
@@ -73,14 +47,15 @@
                             @{
                                 foreach (var job in Model)
                                 {
-                                    <input type="checkbox">
-                                    <span>@job.Category.CategoryName<br /></span>
+                                    <input type="checkbox" name="chkUpdateThis" id="@job.CategoryId" >
+                                        
+                                    <span>@Html.ActionLink(@job.Category.CategoryName, "GetParticularJobs", "Job", new {id = @job.Category.Id }, null ) <br /></span>
                                 }
                             }
                         </label>
                     </div>
 
-                </form>
+                }
 
                 <br>
             </div>

@@ -13,6 +13,7 @@ namespace RecruitingProject.Interface
         void CreateJob(JobFormViewModel model);
         void UpdateJob(JobEditFormViewModel model, int id);
         JobEditFormViewModel Edit(int id);
+        IEnumerable<Job> GetParticularJobs(int id);
         List<Job> GetThreeJobs();
         List<Job> GetAllJobs();
         Job Details(int id);

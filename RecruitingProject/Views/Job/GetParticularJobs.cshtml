@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RecruitingProject.Entity.Job>
+@{
+    ViewBag.Title = "GetParticularJobs";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/Template/assets/css/font-awesome.css" )>
+
+<link rel="stylesheet" href="~/Template/assets/css/style.css">
+
+<!-- ***** Call to Action Start ***** -->
+<section class="section section-bg" id="call-to-action" style="background-image: url(../../Template/assets/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    <h2>Our <em>Jobs</em></h2>
+                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Call to Action End ***** -->
+
+
+@if (!Model.Any())
+{
+    <p>There was no avaliable product</p>
+}
+else
+{
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Avaliable  <em>Jobs</em></h2>
+                        <img src=@Url.Content("~/Template/assets/images/line-dec.png") alt="">
+                        <p>Below are list of avaliable jobs,Under this Category</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var job in Model)
+                {
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src=@job.ImageLocation alt="">
+                            </div>
+                            <div class="down-content">
+                                <span> <sup>$</sup>@job.Amount </span>
+
+                                <p>click on view more to apply for the job as applicant </p>
+
+                                <h6>
+                                    @job.JobName
+                            </h6>
+
+                            <ul class="social-icons">
+                                <li>@Html.ActionLink("+ View More", "Details", "Job", new { id = job.Id }, null)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                }
+            </div>
+            <br>
+            <div class="main-button text-center">
+                <span>@Html.ActionLink(" View More", "ViewMoreJob", "Job", null, new { @class = "btn btn-info center" })</span>
+            </div>
+        </div>
+    </section>
+}

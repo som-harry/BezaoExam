@@ -33,40 +33,51 @@ namespace RecruitingProject.Services
 
 
             var upload = cloudinary.Upload(image);
-            Job newjob = new Job()
+
+            //check if job is already in the database
+            var job = dbContext.context.Jobs.SingleOrDefault(c => c.Id == model.Id);
+            if (job == null)
             {
-                Amount = model.Amount,
-                JobDeadLine = model.JobDeadLine,
-                JobName = model.JobName,
-                AboutEmployer = model.AboutEmployer,
-                EmployerName = model.EmployerName,
-                MobileNumber = model.MobileNumber,
-                Email = model.Email,
-                JobDescription = model.JobDescription,
-                OfficeLine = model.OfficeLine,
-                Website = model.Website,
-                ImageLocation = upload.SecureUrl.AbsoluteUri,
-            };
-            var chosenCategory = dbContext.context.Categories.FirstOrDefault(category => category.CategoryName == model.Category);
-            if (chosenCategory == null)
-            {
-                chosenCategory = new Category()
+
+                Job newjob = new Job()
                 {
-                    CategoryName = model.Category,
-                    CategoryJobs = new List<Job>()
+                    Amount = model.Amount,
+                    JobDeadLine = model.JobDeadLine,
+                    JobName = model.JobName,
+                    AboutEmployer = model.AboutEmployer,
+                    EmployerName = model.EmployerName,
+                    MobileNumber = model.MobileNumber,
+                    Email = model.Email,
+                    JobDescription = model.JobDescription,
+                    OfficeLine = model.OfficeLine,
+                    Website = model.Website,
+                    ImageLocation = upload.SecureUrl.AbsoluteUri,
                 };
-                dbContext.context.Categories.Add(chosenCategory);
+                var chosenCategory = dbContext.context.Categories.FirstOrDefault(category => category.CategoryName == model.Category);
+                if (chosenCategory == null)
+                {
+                    chosenCategory = new Category()
+                    {
+                        CategoryName = model.Category,
+                        CategoryJobs = new List<Job>()
+                    };
+                    dbContext.context.Categories.Add(chosenCategory);
+                    dbContext.context.SaveChanges();
+                }
+
+                newjob.Category = chosenCategory;
+                dbContext.context.Jobs.Add(newjob);
+                chosenCategory.CategoryJobs.Add(newjob);
+
+                //dbContext.context.Entry(chosenCategory).State = EntityState.Modified;
+
+
                 dbContext.context.SaveChanges();
             }
-
-            newjob.Category = chosenCategory;
-            dbContext.context.Jobs.Add(newjob);
-            chosenCategory.CategoryJobs.Add(newjob);
-
-            //dbContext.context.Entry(chosenCategory).State = EntityState.Modified;
-
-
-            dbContext.context.SaveChanges();
+            else
+            {
+                throw new Exception("Job is already in Exitence");
+            }
         }
 
         public Job Details(int id)
@@ -129,7 +140,14 @@ namespace RecruitingProject.Services
         }
         public List<Job> GetAllJobs()
         {
-            return dbContext.context.Jobs.Include(c => c.Category).ToList();
+            return dbContext.context.Jobs.Include(c => c.Category).Distinct().ToList();
+        }
+
+        public IEnumerable<Job> GetParticularJobs(int id)
+        {
+            var ParticularJobs = dbContext.context.Jobs.Include(c => c.Category).Where(c => c.Category.Id == id).ToList();
+
+            return ParticularJobs;
         }
     }
 }

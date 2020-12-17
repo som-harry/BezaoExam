@@ -91,5 +91,13 @@ namespace RecruitingProject.Controllers
             var job = _jobRepo.GetAllJobs();
             return View("MoreJobs",job);
         }
+
+        [AllowAnonymous]
+        // GET: Job
+        public ActionResult GetParticularJobs(int id)
+        {
+            var job = _jobRepo.GetParticularJobs(id);
+            return View(job);
+        }
     }
 }

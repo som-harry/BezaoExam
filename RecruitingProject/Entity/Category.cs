@@ -9,7 +9,7 @@ namespace RecruitingProject.Entity
     public class Category
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string  CategoryName { get; set; }
 
         public List<Job> CategoryJobs { get; set; } = new List<Job>();

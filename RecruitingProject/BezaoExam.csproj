@@ -308,6 +308,10 @@
     <Compile Include="Migrations\202012160016383_PopulateTheCategoryTable.Designer.cs">
       <DependentUpon>202012160016383_PopulateTheCategoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012171012532_Changeinthecategoryprimarykey.cs" />
+    <Compile Include="Migrations\202012171012532_Changeinthecategoryprimarykey.Designer.cs">
+      <DependentUpon>202012171012532_Changeinthecategoryprimarykey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcceptAndRejectViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1069,6 +1073,7 @@
     <Content Include="Views\Applicant\UserDashboard.cshtml" />
     <Content Include="Views\Job\Edit.cshtml" />
     <Content Include="Views\Job\MoreJobs.cshtml" />
+    <Content Include="Views\Job\GetParticularJobs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1147,6 +1152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012160016383_PopulateTheCategoryTable.resx">
       <DependentUpon>202012160016383_PopulateTheCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012171012532_Changeinthecategoryprimarykey.resx">
+      <DependentUpon>202012171012532_Changeinthecategoryprimarykey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
